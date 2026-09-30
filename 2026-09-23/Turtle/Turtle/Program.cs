@@ -1,12 +1,54 @@
-﻿class Program
+﻿using System;
+using System.Threading; 
+
+class Program
 {
     static void Main(string[] args)
     {
-        turtle c = new turtle(5, 10, 'b'); // Neues Objekt Definieren
-        c.laufe(6); // 6 Schritte laufen
-        c.drehe(); // Drehen
-        c.laufe(4); // 4 Schritte nach unten Laufen
-    }
+        Console.CursorVisible = false; 
+        int maxBreite = Console.WindowWidth;
+        for (int y = 0; y < 20; y += 8)
+        {
+            for (int x = 0; x < maxBreite - 20; x++)
+            {
+                
+                Console.Clear(); 
+                //Console.BackgroundColor = ConsoleColor.Black;
+                
+                
+                turtle c = new turtle(x + 2, y + 2, 'b', maxBreite); 
+                c.laufe(6); // 6 Schritte laufen
+                c.springe(-6, 0);
+                c.drehe(); // Drehen (nach unten)
+                c.laufe(4); // 4 Schritte nach unten Laufen
+                c.drehe();
+                c.drehe();
+                c.drehe(); // Drehen (nach rechts)
+                c.springe(0, 1);
+                c.laufe(6);
+                
+                turtle s = new turtle(x + 10, y + 2, 'g', maxBreite);
+                
+                s.springe(2, 0);
+                s.drehe(); // Drehen nach unten
+                s.laufe(5);
+                
+                s.springe(3, -5); // Zurück nach oben springen
+                s.laufe(5);
+                
+                s.springe(-4, -1);
+                s.drehe();
+                s.drehe();
+                s.drehe(); // Nach rechts drehen
+                s.laufe(6);
+                
+                s.springe(-6, -2);
+                s.laufe(6);
+                
+                Thread.Sleep(50);
+            }
+        }
+    } 
 }
 
 class turtle
@@ -15,6 +57,7 @@ class turtle
     private int yposition;
     private int richtung;
     private ConsoleColor farbe;
+    private int maxBreite; // Speichert die maximale Breite (alt)
 
     /*
      * Das ist der Standart Konstruktor
@@ -25,19 +68,22 @@ class turtle
         xposition = 0;
         yposition = 0;
         richtung = 0;
+        maxBreite = Console.WindowWidth;
     }
+
     /*
      * Das ist der Paramisierte Konstruktor
      * Ihm muss man die Startwerte geben
      */
-    public turtle(int startx, int starty, char startFarbe)
+    public turtle(int startx, int starty, char startFarbe, int maxBreite)
     {
         xposition = startx;
         yposition = starty;
         richtung = 0;
+        this.maxBreite = maxBreite;
         aenderefarbe(startFarbe);
     }
-    
+ 
     /*
      * Definiert Farben zur einfachen Verwaltung
      */
@@ -59,10 +105,14 @@ class turtle
      */
     public void zeichne()
     {
-        Console.SetCursorPosition(xposition, yposition);
-        Console.ForegroundColor = farbe;
-        Console.Write("x");
+        if (xposition >= 0 && xposition < Console.WindowWidth && yposition >= 0) 
+        {
+            Console.SetCursorPosition(xposition, yposition);
+            Console.ForegroundColor = farbe;
+            Console.Write("x");
+        }
     }
+
     /*
      * Das ist der Läufer oder die Schildkröte
      * Er läuft die Strecke und fürt die Methode zeichne aus
@@ -73,15 +123,15 @@ class turtle
         {
             switch (richtung) // Hier werden die Variablen verändert je nach Richtung
             {
-                case 0: xposition++; break;
+                case 0: if (xposition < maxBreite - 1) xposition++; break;
                 case 1: yposition++; break;
-                case 2: xposition--; break;
-                case 3: yposition--; break;
+                case 2: if (xposition > 0) xposition--; break;
+                case 3: if (yposition > 0) yposition--; break;
             }
             zeichne();
         }
     }
-    
+ 
     /*
      * Das ist der Springer
      * Er überspringt einen bestimmten Bereich
@@ -89,7 +139,11 @@ class turtle
     public void springe(int x, int y)
     {
         xposition += x;
+        if (xposition >= maxBreite) xposition = maxBreite - 1; 
+        if (xposition < 0) xposition = 0;
+
         yposition += y;
+        if (yposition < 0) yposition = 0;
     }
 
     /*
@@ -101,5 +155,4 @@ class turtle
     {
         richtung = (richtung + 1) % 4;
     }
-
 }
