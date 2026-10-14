@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Turtle")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d3c44fc1f9a0df55034d6594b25bdc6ff5e32a7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bc300fdeb80ca25f01d1786feb18868124f98e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Turtle")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Turtle")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

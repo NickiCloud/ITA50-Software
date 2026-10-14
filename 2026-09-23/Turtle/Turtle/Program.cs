@@ -9,12 +9,10 @@ class Program
         int maxBreite = Console.WindowWidth;
         for (int y = 0; y < 20; y += 8)
         {
-            for (int x = 0; x < maxBreite - 20; x++)
+            for (int x = 0; x < maxBreite; x++) 
             {
-                
                 Console.Clear(); 
                 //Console.BackgroundColor = ConsoleColor.Black;
-                
                 
                 turtle c = new turtle(x + 2, y + 2, 'b', maxBreite); 
                 c.laufe(6); // 6 Schritte laufen
@@ -77,10 +75,29 @@ class turtle
      */
     public turtle(int startx, int starty, char startFarbe, int maxBreite)
     {
+        if (startx >= maxBreite)
+        {
+            startx -= maxBreite;
+            starty += 8;
+        }
+
         xposition = startx;
         yposition = starty;
         richtung = 0;
         this.maxBreite = maxBreite;
+        aenderefarbe(startFarbe);
+    }
+    public turtle(int startx, int starty, char startFarbe)
+    {
+        if (startx >= maxBreite)
+        {
+            startx -= maxBreite;
+            starty += 8;
+        }
+
+        xposition = startx;
+        yposition = starty;
+        richtung = 0;
         aenderefarbe(startFarbe);
     }
  
@@ -101,7 +118,7 @@ class turtle
     /*
      * Das ist die Zeichen Methode
      * Sie schreibt das "x" an der x und y Position
-     * Außerdem wird hier die Farbe geändet
+     * Außerdem wird hier die Farbe geändert
      */
     public void zeichne()
     {
@@ -141,7 +158,7 @@ class turtle
         xposition += x;
         if (xposition >= maxBreite) xposition = maxBreite - 1; 
         if (xposition < 0) xposition = 0;
-
+        
         yposition += y;
         if (yposition < 0) yposition = 0;
     }
@@ -149,7 +166,7 @@ class turtle
     /*
      * Das ist der Dreher
      * Er dreht die Richtung in 4 verschiedene Richtungen
-     * Wenn aufgerufen dreht er 1 einheit im Uhrzeigersinn
+     * Wenn aufgerufen dreht er 1 Einheit im Uhrzeigersinn
      */
     public void drehe()
     {
