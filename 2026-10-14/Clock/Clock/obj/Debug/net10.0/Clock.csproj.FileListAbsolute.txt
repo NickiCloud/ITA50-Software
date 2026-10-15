@@ -1,0 +1,15 @@
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/bin/Debug/net10.0/Clock
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/bin/Debug/net10.0/Clock.deps.json
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/bin/Debug/net10.0/Clock.runtimeconfig.json
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/bin/Debug/net10.0/Clock.dll
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/bin/Debug/net10.0/Clock.pdb
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/obj/Debug/net10.0/Clock.GeneratedMSBuildEditorConfig.editorconfig
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/obj/Debug/net10.0/Clock.AssemblyInfoInputs.cache
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/obj/Debug/net10.0/Clock.AssemblyInfo.cs
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/obj/Debug/net10.0/Clock.csproj.CoreCompileInputs.cache
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/obj/Debug/net10.0/Clock.sourcelink.json
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/obj/Debug/net10.0/Clock.dll
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/obj/Debug/net10.0/refint/Clock.dll
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/obj/Debug/net10.0/Clock.pdb
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/obj/Debug/net10.0/Clock.genruntimeconfig.cache
+/home/nicki/SchuleGit/Software/2026-10-14/Clock/Clock/obj/Debug/net10.0/ref/Clock.dll
